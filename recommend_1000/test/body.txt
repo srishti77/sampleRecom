@@ -1,0 +1,100 @@
+public  field   (  string help )  {  set help ( help )  ;  return this ;   }  
+public  field   (  string hint )  {  set hint ( hint )  ;  return this ;   }  
+public  field   (  string id override )  {  set id override ( id override )  ;  return this ;   }  
+public  field   (  boolean is large entry )  {  set large entry ( is large entry )  ;  return this ;   }  
+public  field   (  boolean is main entity link )  {  set main entity link ( is main entity link )  ;  return this ;   }  
+public  field   (  string name )  {  set name ( name )  ;  return this ;   }  
+public  field   (  integer order )  {  set order ( order )  ;  return this ;   }  
+public  field   (  string owning entity class )  {  set owning entity class ( owning entity class )  ;  return this ;   }  
+public  field   (  boolean is read only )  {  set read only ( is read only )  ;  return this ;   }  
+public  field   (  boolean required )  {  set required ( required )  ;  return this ;   }  
+public  field   (  string tooltip )  {  set tooltip ( tooltip )  ;  return this ;   }  
+public  field   (  boolean is translatable )  {  set translatable ( is translatable )  ;  return this ;   }  
+public  field   (  string translation field name )  {  set translation field name ( translation field name )  ;  return this ;   }  
+public  field   (  boolean is typeahead enabled )  {  set is typeahead enabled ( is typeahead enabled )  ;  return this ;   }  
+public  field   (  string value )  {  set value ( value )  ;  return this ;   }  
+public  field group   (  string custom template )  {  set custom template ( custom template )  ;  return this ;   }  
+public  field group   (  string key )  {  set key ( key )  ;  return this ;   }  
+public  field group   (  integer order )  {  set order ( order )  ;  return this ;   }  
+public  field group   (  string title )  {  set title ( title )  ;  return this ;   }  
+public  tab   (  string custom template )  {  set custom template ( custom template )  ;  return this ;   }  
+public  tab   (  boolean is multi column )  {  set is multi column ( is multi column )  ;  return this ;   }  
+public  tab   (  string key )  {  set key ( key )  ;  return this ;   }  
+public  tab   (  integer order )  {  set order ( order )  ;  return this ;   }  
+public  tab   (  string tab class )  {  set tab class ( tab class )  ;  return this ;   }  
+public  tab   (  string title )  {  set title ( title )  ;  return this ;   }  
+public  table creator   ( int width )  {  this . global row header width = width ;  return this ;   }  
+public  deep link   (  string admin base url )  {  set admin base url ( admin base url )  ;  return this ;   }  
+public  deep link   (  string display text )  {  set display text ( display text )  ;  return this ;   }  
+public  deep link   (  object source object )  {  set source object ( source object )  ;  return this ;   }  
+public  deep link   (  string url fragment )  {  set url fragment ( url fragment )  ;  return this ;   }  
+public  json response   (  string key  object value )  {  map . put ( key value )  ;  return this ;   }  
+public  customer user details   (  long id )  {  set id ( id )  ;  return this ;   }  
+public  self describing   (  )  {  return new  self describing (  )  {  @ override public void describe to (  final  description description )  {  description . append text ( " ( "  +  wanted . get class (  )  . get simple name (  )   +  " )  " )  . append text ( describe ( wanted )  )  ;   }   }   ;   }  
+@ override public  curator multi transaction main   (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public acl background path and bytesable <  string >    (  create mode mode )  {  return  create builder impl . this . with mode ( mode )  ;   }  
+@ override public acl path and bytesable <  string >    (  )  {  return  create builder impl . this . with protected ephemeral sequential (  )  ;   }  
+@ override public acl create mode background path and bytesable <  string >    (  )  {  return  create builder impl . this . with protection (  )  ;   }  
+@ override public  transaction create builder2 < t >    ( long ttl )  {   create builder impl . this . with ttl ( ttl )  ;  return this ;   }  
+@ override public  path and bytesable <  string >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  pathable < t >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  pathable <  void >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  background pathable <  void >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  pathable <  stat >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  pathable <  list < acl >  >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  pathable <  list <  string >  >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  pathable < byte[] >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  ensembleable < byte[] >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  pathable <  void >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  stat configure ensembleable   (  list <  string >  servers )  {  new members =  ( servers  !  =  null )   ?   immutable list . copy of ( servers )  :  immutable list .  <  string > of (  )  ;  return new  stat configure ensembleable (  
+@ override public  reconfig builder main   (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  path and bytesable <  stat >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  background path and bytesable <  stat >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  pathable <  stat >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public ac lable <  background pathable <  stat >  >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  pathable <  void >    (  unhandled error listener listener )  {  backgrounding = new  backgrounding ( backgrounding listener )  ;  return this ;   }  
+@ override public  async path and bytesable <  async stage <  string >  >    (  create mode create mode )  {  this . create mode =  objects . require non null ( create mode "create mode cannot be null" )  ;  return this ;   }  
+@ override public  async path and bytesable <  async stage <  string >  >    (  set <  create option >  options  create mode create mode  list < acl >  acl list  stat stat long ttl int set data version )  {  this . options =  objects . require non null ( 
+@ override public  async path and bytesable <  async stage <  string >  >    ( int version )  {  this . set data version = version ;  return this ;   }  
+@ override public  async path and bytesable <  async stage <  string >  >    ( long ttl )  {  this . ttl = ttl ;  return this ;   }  
+@ override public  async curator framework dsl   (  unhandled error listener listener  unary operator <  curator event >  result filter  unary operator <  watched event >  watcher filter )  {  return new  async curator framework impl ( client new  filters
+@ override public  async pathable <  async stage <  void >  >    (  set <  delete option >  options )  {  return with options and version ( options  - 1 )  ;   }  
+@ override public  async pathable <  async stage <  void >  >    (  set <  delete option >  options int version )  {  this . options =  objects . require non null ( options "options cannot be null" )  ;  this . version = version ;  return this ;   }  
+@ override public  async pathable <  async stage <  void >  >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  async pathable <  async stage <  stat >  >    (  set <  exists option >  options )  {  this . options =  objects . require non null ( options "options cannot be null" )  ;  return this ;   }  
+@ override public  async ensemblable <  async stage <  void >  >    (  list <  string >  joining  list <  string >  leaving long from config )  {  this . joining = joining ;  this . leaving = leaving ;  this . from config = from config ;  return this ;   
+@ override public  async ensemblable <  async stage <  void >  >    (  list <  string >  servers long from config )  {  this . new members = servers ;  this . from config = from config ;  return this ;   }  
+@ override public  async path and bytesable <  async stage <  stat >  >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  async path and bytesable <  curator op >    (  create mode create mode )  {  this . create mode =  objects . require non null ( create mode "create mode cannot be null" )  ;  return this ;   }  
+@ override public  async path and bytesable <  curator op >    (  create mode create mode  list < acl >  acl list boolean compressed long ttl )  {  this . create mode =  objects . require non null ( create mode "create mode cannot be null" )  ;  this . ac
+@ override public  async path and bytesable <  curator op >    ( long ttl )  {  this . ttl = ttl ;  return this ;   }  
+@ override public  async pathable <  curator op >    ( int version )  {  this . version = version ;  return this ;   }  
+@ override public  async path and bytesable <  curator op >    ( int version )  {  this . version = version ;  compressed = true ;  return this ;   }  
+@ override public  modeled framework < t >    ( z path path )  {   model spec < t >  new model spec = model spec . with path ( path )  ;  return new  modeled framework impl <  >  ( client dsl client watchable client new model spec watch mode watcher filte
+@ override public  model spec < t >    ( z path new path )  {  return new  model spec impl <  >  ( new path serializer create mode acl list create options delete options ttl )  ;   }  
+@ override public  cached modeled framework < t >    ( z path path )  {  return new  cached modeled framework impl <  >  ( client . with path ( path )  cache executor )  ;   }  
+public  modeled framework builder < t >    (  async curator framework client )  {  this . client =  objects . require non null ( client "client cannot be null" )  ;  return this ;   }  
+public  modeled framework builder < t >    (  model spec < t >  model spec )  {  this . model spec =  objects . require non null ( model spec "model spec cannot be null" )  ;  return this ;   }  
+public  modeled framework builder < t >    (  set <  modeled options >  modeled options )  {  this . modeled options =  immutable set . copy of (  objects . require non null ( modeled options "client cannot be null" )  )  ;  return this ;   }  
+public  modeled framework builder < t >    (  unary operator <  curator event >  result filter )  {  this . result filter = result filter ;  return this ;   }  
+public  modeled framework builder < t >    (  unhandled error listener unhandled error listener )  {  this . unhandled error listener = unhandled error listener ;  return this ;   }  
+public  model spec builder < t >    (  list < acl >  acl list )  {  this . acl list = acl list ;  return this ;   }  
+public  model spec builder < t >    (  create mode create mode )  {  this . create mode = create mode ;  return this ;   }  
+public  model spec builder < t >    (  set <  create option >  create options )  {  this . create options =  ( create options  !  =  null )   ?   immutable set . copy of ( create options )  : null ;  return this ;   }  
+public  model spec builder < t >    (  set <  delete option >  delete options )  {  this . delete options =  ( delete options  !  =  null )   ?   immutable set . copy of ( delete options )  : null ;  return this ;   }  
+public  model spec builder < t >    ( z path path )  {  this . path =  objects . require non null ( path "path cannot be null" )  ;  return this ;   }  
+public  model spec builder < t >    ( long ttl )  {  this . ttl = ttl ;  return this ;   }  
+public  builder   (  amazon info config config )  {  this . config = config ;  return this ;   }  
+@ json any setter public void   (  string field name  object value )  {  if  ( field name  =  =  null || value  =  =  null )   {  return ;   }  if  ( field name . starts with ( "version" )  )   {  try  {  version = value instanceof  number  ?   (  (  numb
+@ json property ( "application" )  public void   (  list <  application >  applications )  {  this . applications = applications ;   }  
+@ override @ jackson xml element wrapper ( use wrapping = false )  public void   (  list <  application >  applications )  {  super . with application ( applications )  ;   }  
+public  string interning amazon info builder   (  hash map <  string  string >  metadata )  {  this . metadata = metadata ;  if  ( metadata . is empty (  )  )   {  return this ;   }  for  (   map .  entry <  string  string >  entry : metadata . entry set (  )  )   {   string key = entry . get key (  )  . intern (  )  ;  if  ( value   intern   keys . contains key ( key )  )   {  entry . set value (  string cache . intern ( entry . get value (  )  )  )  ;   }   }  return this ;   }  
+public  string interning amazon info builder   (  string name )  {  return this ;   }  
+public  eureka jersey client builder   (  string client name )  {  this . client name = client name ;  return this ;   }  
+public  eureka jersey client builder   ( int connection idle timeout )  {  this . connection idle timeout = connection idle timeout ;  return this ;   }  
+public  eureka jersey client builder   ( int connection timeout )  {  this . connection timeout = connection timeout ;  return this ;   }  
+public  eureka jersey client builder   ( ssl context ssl context )  {  this . ssl context = ssl context ;  return this ;   }  
+public  eureka jersey client builder   (  string decoder name  string client data accept )  {  return this . with decoder wrapper (  codec wrappers . resolve decoder ( decoder name client data accept )  )  ;   }  
+public  eureka jersey client builder   (  decoder wrapper decoder wrapper )  {  this . decoder wrapper = decoder wrapper ;  return this ;   }  
+public  eureka jersey client builder   (  string encoder name )  {  return this . with encoder wrapper (  codec wrappers . get encoder ( encoder name )  )  ;   }  
+public  eureka jersey client builder   (  encoder wrapper encoder wrapper )  {  this . encoder wrapper = encoder wrapper ;  return this ;   }  
