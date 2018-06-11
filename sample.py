@@ -1,7 +1,8 @@
 import logging
-#from pandas.tests.io.json.test_pandas import cat
+from pandas.tests.io.json.test_pandas import cat
 
-#from fastai.Recommend import RecommendDataset
+from fastai.Recommend import RecommendDataset
+
 from fastai.column_data import ColumnarModelData
 from fastai.learner import *
 

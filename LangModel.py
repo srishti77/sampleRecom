@@ -15,10 +15,11 @@ import torch
 from functools import partial
 
 from fastai.metrics import accuracy, accuracy_np
+
 from fastai.nlp import LanguageModelData, seq2seq_reg
 from parameters import em_sz, nh, nl, PATH, bs, bptt, pretrained_lang_model_name
-#from utils import to_test_mode, output_predictions, gen_text, back_to_train_mode, f2, beautify_text
-import dill as pickle
+#accuracy_gen, top_k
+#from utils import to_test_mode, output_predictions, gen_text, back_to_train_mode, f2, beautify_texte
 
 def get_language_model(text_field, model_name):
     dir_path = 'data/'
@@ -43,6 +44,9 @@ def get_language_model(text_field, model_name):
     try:
         learner.load(model_name)
         #logging.info(f'                    ... {accuracy(*learner.predict_with_targs())}')
+
+#        logging.info(f'                    ... {accuracy(*learner.predict_with_targs())}')
+
         #logging.info(f'... {top_k(*learner.predict_with_targs(), 2)}')
 
     except FileNotFoundError:

@@ -1,7 +1,9 @@
 import logging
 from pandas.tests.io.json.test_pandas import cat
 
+
 from Recommend import RecommendDataset
+
 from fastai.column_data import ColumnarModelData
 from fastai.learner import *
 
@@ -13,8 +15,13 @@ from fastai.rnn_train import *
 from fastai.nlp import *
 from fastai.lm_rnn import *
 import dill as pickle
+
 from fastai.metrics import accuracy
 from parameters import  PATH, bs, bptt, em_sz, nh,nl, pretrained_lang_model_name, dir_PATH
+
+
+from fastai.parameters import  PATH, bs, bptt, em_sz, nh,nl, pretrained_lang_model_name, dir_PATH
+
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -26,7 +33,7 @@ def get_text_classifier_model(text_field, level_label, model_name, pretrained_la
 
     opt_fn = partial(torch.optim.Adam, betas=(0.7, 0.99))
 
-    rnn_learner = text_data.get_model(opt_fn, 500, bptt, em_sz, nh, nl,
+    rnn_learner = text_data.get_model(opt_fn, 500, bptt, em_sz,nh, nl,
                                       dropouti=0.05, dropout=0.05, wdrop=0.1, dropoute=0.02, dropouth=0.05)
 
     #reguarizing LSTM paper -- penalizing large activations -- reduce overfitting
@@ -69,7 +76,6 @@ def get_text_classifier_model(text_field, level_label, model_name, pretrained_la
     #rnn_learner.fit(lrs, metrics=[accuracy], cycle_len=1, n_cycle=1)
     #rnn_learner.unfreeze()
     #rnn_learner.fit(lrs, metrics=[accuracy], cycle_len=1, n_cycle=1)
-
     # logging.info(f'Current accuracy is ...')
     # logging.info(f'                    ... {accuracy_gen(*rnn_learner.predict_with_targs())}')
     # rnn_learner.sched.plot_loss()
