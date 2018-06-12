@@ -1,7 +1,9 @@
 import logging
 from pandas.tests.io.json.test_pandas import cat
 
-from fastai.Recommend import RecommendDataset
+
+from Recommend import RecommendDataset
+
 from fastai.column_data import ColumnarModelData
 from fastai.learner import *
 
@@ -14,7 +16,12 @@ from fastai.nlp import *
 from fastai.lm_rnn import *
 import dill as pickle
 
+from fastai.metrics import accuracy
+from parameters import  PATH, bs, bptt, em_sz, nh,nl, pretrained_lang_model_name, dir_PATH
+
+
 from fastai.parameters import  PATH, bs, bptt, em_sz, nh,nl, pretrained_lang_model_name, dir_PATH
+
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -26,7 +33,7 @@ def get_text_classifier_model(text_field, level_label, model_name, pretrained_la
 
     opt_fn = partial(torch.optim.Adam, betas=(0.7, 0.99))
 
-    rnn_learner = text_data.get_model(opt_fn, 50, bptt, em_sz, nh, nl,
+    rnn_learner = text_data.get_model(opt_fn, 500, bptt, em_sz,nh, nl,
                                       dropouti=0.05, dropout=0.05, wdrop=0.1, dropoute=0.02, dropouth=0.05)
 
     #reguarizing LSTM paper -- penalizing large activations -- reduce overfitting
@@ -49,7 +56,7 @@ def get_text_classifier_model(text_field, level_label, model_name, pretrained_la
             logging.error(f"Model {pretrained_lang_model_name}_encoder not found. Aborting...")
             exit(1)
 
-    # rnn_learner.lr_find()
+    #rnn_learner.lr_find()
     # rnn_learner.sched.plot()
 
     rnn_learner.clip = 25.
@@ -63,13 +70,12 @@ def get_text_classifier_model(text_field, level_label, model_name, pretrained_la
         base_lr / factor,
         base_lr])
 
-    # rnn_learner.freeze_to(-1)
-    # rnn_learner.fit(lrs, metrics=[accuracy_tensors], cycle_len=1, n_cycle=1)
-    # rnn_learner.freeze_to(-2)
-    # rnn_learner.fit(lrs, metrics=[accuracy_tensors], cycle_len=1, n_cycle=1)
-    # rnn_learner.unfreeze()
-    #rnn_learner.fit(lrs, metrics=[accuracy_tensors], cycle_len=1, n_cycle=1)
-
+    #rnn_learner.freeze_to(-1)
+    #rnn_learner.fit(lrs, metrics=[accuracy], cycle_len=1, n_cycle=1)
+    #rnn_learner.freeze_to(-2)
+    #rnn_learner.fit(lrs, metrics=[accuracy], cycle_len=1, n_cycle=1)
+    #rnn_learner.unfreeze()
+    #rnn_learner.fit(lrs, metrics=[accuracy], cycle_len=1, n_cycle=1)
     # logging.info(f'Current accuracy is ...')
     # logging.info(f'                    ... {accuracy_gen(*rnn_learner.predict_with_targs())}')
     # rnn_learner.sched.plot_loss()
@@ -79,7 +85,7 @@ def get_text_classifier_model(text_field, level_label, model_name, pretrained_la
 
     return rnn_learner
 
-text_field = pickle.load(open(f'{PATH}\\{pretrained_lang_model_name}\\TEXT.pkl','rb'))
+text_field = pickle.load(open(f'{PATH}/{pretrained_lang_model_name}/TEXT.pkl','rb'))
 LEVEL_LABEL = data.Field()
 
 learner = get_text_classifier_model(text_field, LEVEL_LABEL,
@@ -110,11 +116,11 @@ def output_predictions(m, input_field, output_field, starting_text, how_many):
     print("===================")
     print(starting_text)
     for probability, label in map(to_np, zip(probs, labels)):
-        print(f'{output_field.vocab.itos[label]}: {probability}')
+        print(f'{output_field.vocab.itos[label[0]]}: {probability}')
 
 
 
-with open(f'{PATH}\\{pretrained_lang_model_name}\\test\\body.txt', 'r') as f:
+with open(f'{PATH}/{pretrained_lang_model_name}/test/body.txt', 'r') as f:
     counter = 0
     for line in f:
         if counter > 30:

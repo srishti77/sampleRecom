@@ -4,8 +4,6 @@ import torch
 from fastai.nlp import *
 from fastai.lm_rnn import *
 import dill as pickle
-
-from fastai.parameters import pretrained_lang_model_name, bs, bptt,em_sz,nh, nl
 import os
 import numpy as np
 from functools import partial
@@ -17,28 +15,23 @@ import torch
 from functools import partial
 
 from fastai.metrics import accuracy, accuracy_np
-#accuracy_gen, top_k
+
 from fastai.nlp import LanguageModelData, seq2seq_reg
-from fastai.parameters import em_sz, nh, nl, PATH, bs, bptt, pretrained_lang_model_name
-#from utils import to_test_mode, output_predictions, gen_text, back_to_train_mode, f2, beautify_text
-import dill as pickle
+from parameters import em_sz, nh, nl, PATH, bs, bptt, pretrained_lang_model_name
+#accuracy_gen, top_k
+#from utils import to_test_mode, output_predictions, gen_text, back_to_train_mode, f2, beautify_texte
 
 def get_language_model(text_field, model_name):
-    dir_path = 'data\\'
-    TRN_PATH = 'train\\body.txt'
-    VAL_PATH = 'test\\body.txt'
-
-
-    dataset = pd.read_csv(f'{dir_path}\\{model_name}\\{TRN_PATH}').to_string()
-
-    testset = pd.read_csv(f'{dir_path}\\{model_name}\\{VAL_PATH}').to_string()
+    dir_path = 'data/'
+    TRN_PATH = 'train/body.txt'
+    VAL_PATH = 'test/body.txt'
 
     TEXT = data.Field()
-    FILES = dict(train=f'{model_name}\\{TRN_PATH}', validation=f'{model_name}\\{VAL_PATH}', test=f'{model_name}\\{VAL_PATH}')
+    FILES = dict(train=f'{model_name}/{TRN_PATH}', validation=f'{model_name}/{VAL_PATH}', test=f'{model_name}/{VAL_PATH}')
     print('Create model------------------')
     md = LanguageModelData.from_text_files(path =dir_path, field=TEXT, **FILES, bs=bs, bptt=bptt, min_freq=5)
 
-    pickle.dump(TEXT, open(f'{dir_path}\\{model_name}\\TEXT.pkl','wb'))
+    pickle.dump(TEXT, open(f'{dir_path}/{model_name}/TEXT.pkl','wb'))
 
     opt_fn = partial(optim.Adam, betas=(0.7, 0.99))
 
@@ -50,7 +43,10 @@ def get_language_model(text_field, model_name):
 
     try:
         learner.load(model_name)
+        #logging.info(f'                    ... {accuracy(*learner.predict_with_targs())}')
+
 #        logging.info(f'                    ... {accuracy(*learner.predict_with_targs())}')
+
         #logging.info(f'... {top_k(*learner.predict_with_targs(), 2)}')
 
     except FileNotFoundError:
