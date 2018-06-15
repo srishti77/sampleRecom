@@ -1,0 +1,3 @@
+salloc -J taskname -N 1 --qos=gpu_gtx1080single --partition=gpu_gtx1080single
+srun hostname
+ssh <node_name>
