@@ -1,0 +1,16 @@
+cycle: 3
+get _eos_
+public v ( object key ) { int hash = hash ( key ) ; return segment for ( hash ) . get ( key hash ) ; } _eos_
+public override public string ( ) ) ) ) ) ) ) ) ) )
+is next _eos_
+public boolean ( char c ) { if ( ! has next ( ) ) return false ; return lc text[pos + 1 ] = = c ; } _eos_
+public boolean ( ) { ) { { ; ; ;
+token _eos_
+public ( k key ) { this . key = key ; this . threadid = thread . current thread ( ) . get id ( ) ; } _eos_
+@ override ( ( ( ) ) ) ) ) ) ) ) ) ) ) ) )
+remove ref _eos_
+public static string ( string url ) throws malformedurl exception { return remove ref ( new url ( url ) ) . to external form ( ) ; } _eos_
+@ override ( string ( ) ) ) ) ) ) ) ) ) ) ) ) )
+fd simple variable _eos_
+public ( ifd stack frame frame string name string value list children ) { this ( frame name new fd simple value ( children value ) ) ; } _eos_
+public ( string ( ) { { { . . . . . ; ; ;

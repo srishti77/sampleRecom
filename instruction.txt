@@ -1,3 +1,11 @@
 salloc -J taskname -N 1 --qos=gpu_gtx1080single --partition=gpu_gtx1080single
 srun hostname
 ssh <node_name>
+
+
+ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -E -quiet -v - 
+-march=core-avx2 -mcx16 -msahf -mmovbe -maes -mpclmul -mpopcnt -mabm -mno-lwp 
+-mfma -mno-fma4 -mno-xop -mbmi -mbmi2 -mno-tbm -mavx -mavx2 -msse4.2 -msse4.1 -mlzcnt 
+-mrtm -mhle -mrdrnd -mf16c -mfsgsbase -mrdseed -mprfchw -madx -mfxsr -mxsave -mxsaveopt 
+-mno-pku --param l1-cache-size=32 
+--param l1-cache-line-size=64 --param l2-cache-size=10240 -mtune=generic
