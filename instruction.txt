@@ -9,3 +9,10 @@ ssh <node_name>
 -mrtm -mhle -mrdrnd -mf16c -mfsgsbase -mrdseed -mprfchw -madx -mfxsr -mxsave -mxsaveopt 
 -mno-pku --param l1-cache-size=32 
 --param l1-cache-line-size=64 --param l2-cache-size=10240 -mtune=generic
+
+
+
+export FASTAI='/home/lv71161/hlibbabii/fastai'
+export ANACONDA='/home/lv71161/hlibbabii/anaconda3'
+export PYTHONPATH="$HOME/fastai:$PYTHONPATH"
+. /home/lv71161/hlibbabii/anaconda3/etc/profile.d/conda.sh
