@@ -2,6 +2,7 @@ salloc -J taskname -N 1 --qos=gpu_gtx1080single --partition=gpu_gtx1080single
 srun hostname
 ssh <node_name>
 
+ssh sgaihre@vsc3.vsc.ac.at
 
  /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -E -quiet -v - 
 -march=core-avx2 -mcx16 -msahf -mmovbe -maes -mpclmul -mpopcnt -mabm -mno-lwp 
