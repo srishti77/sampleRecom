@@ -118,7 +118,7 @@ def output_predictions(m, input_field, output_field, starting_text, how_many):
     for probability, label in map(to_np, zip(probs, labels)):
         print(f'{output_field.vocab.itos[label[0]]}: {probability}')
         try:
-            print(np.exp(probability))
+            print('probability '+str(np.exp(probability)))
         except:
             print("cannot convert into prob")   
 
