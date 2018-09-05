@@ -15,7 +15,7 @@ def create_emb(vecs, itos, em_sz):
         try: wgts[i] = torch.from_numpy(vecs[w]*3)
         except: miss.append(w)
     print('Missed:')
-    print('missed'+ str(miss))
+    #print('missed'+ str(miss))
     print(len(miss),miss[5:10])
     return emb
 
@@ -23,7 +23,7 @@ class Seq2SeqRNN_All(nn.Module):
     def __init__(self, vecs_enc, itos_enc, em_sz_enc, vecs_dec, itos_dec, em_sz_dec, nh, out_sl, nl=2):
         super().__init__()
         self.itos_enc =itos_enc # itos_enc = 467
-        print('size of itos_enc'+ str(len(itos_enc)))
+        #print('size of itos_enc'+ str(len(itos_enc)))
         self.emb_enc = create_emb(vecs_enc, itos_enc, em_sz_enc)
         self.nl, self.nh, self.out_sl = nl, nh, out_sl
         self.gru_enc = nn.GRU(em_sz_enc, nh, num_layers=nl, dropout=0.25, bidirectional=True)
@@ -54,6 +54,8 @@ class Seq2SeqRNN_All(nn.Module):
         res, attns = [], []
         w1e = enc_out @ self.W1 # w1e size= 443, 87, 300
         seq = enc_out.size(1) # seq =87
+
+
         for i in range(self.out_sl): #out_sl = 5 in this case
             w2h = self.l2(h[-1]) # w2h = 87 * 300, h[-1] = 2*87*300 h from the encoder
             u = F.tanh(w1e + w2h) # u = 443 * 87 *300
@@ -72,8 +74,8 @@ class Seq2SeqRNN_All(nn.Module):
             if (dec_inp == 1).all(): break
             if (y is not None) and (random.random() < self.pr_force):
                 if i >= len(y): break
-                dec_inp = y[i]
-                print('y' + str(y))
+                dec_inp = y[i] # y = 5 * 87
+                print('y size:' + str(y.size()))
 
             score_c = F.tanh(self.out_enc(enc_out.contiguous().view(-1, self.nh * 2))) # score_c = 38541, 300
             score_c = score_c.view(bs, -1, self.nh * 3) # score_c = 87 *443*300
@@ -88,14 +90,21 @@ class Seq2SeqRNN_All(nn.Module):
             prob_c_to_g = torch.Tensor(bs, len(self.itos_dec)).zero_()
             prob_c_to_g = Variable(prob_c_to_g) # prob_c_to_g = 87 * 105
 
-            for b_idx in range(sl):  # for each sequence in batch
-                for s_idx in range(bs):
-                    if b_idx < 87 and inp[b_idx,s_idx] < 105:
-                        prob_c_to_g[b_idx, inp[b_idx,s_idx]]=prob_c_to_g[b_idx, inp[b_idx,s_idx]]+prob_c[b_idx,s_idx]
+            if (y is not None) and (random.random() < self.pr_force):
+                t_y = y.t() # 87* 5
+                for b_idx in range(bs):  # for each sequence in batch
+                        if b_idx < bs and t_y[b_idx,i] < len(self.itos_dec):
+                            print(i)
+                            prob_c_to_g[b_idx, t_y[b_idx,i]]= prob_c_to_g[b_idx, t_y[b_idx,i]]+prob_c[b_idx,i]
 
             out1 = prob_g + prob_c_to_g
-            print('out1'+ str(out1.size()))
+            #print('out1'+ str(out1.size()))
             res.append(out1)
+
+        '''if (y is not None):
+            print('Y Values:' + str(
+                ' '.join(self.itos_dec[t_y[i][j]] for i in range(len(t_y[0])) for j in range(len(t_y[1])))))'''
+
         return torch.stack(res)
 
     def initHidden(self, bs):
