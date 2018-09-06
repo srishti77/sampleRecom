@@ -1,0 +1,101 @@
+augment
+load properties
+evaluate response
+get authenticated user
+is complete
+legacy authenticate
+new sasl negotiator
+protected resources
+require authentication
+authorize
+grant
+list
+protected resources
+require authorization
+revoke
+authenticate
+auth cache
+get
+get max entries
+get object name
+get update interval
+get validity
+init
+init cache
+invalidate
+set max entries
+set update interval
+set validity
+apply auth
+authenticated user
+equals
+get name
+get permissions
+get primary role
+get roles
+hash code
+is anonymous
+is super
+is system
+to string
+metadata
+parse
+on drop aggregate
+on drop function
+on drop keyspace
+on drop table
+add lookup entry
+add permissions for role
+authorize
+build list query
+escape
+execute logged batch
+grant
+list
+list permissions for role
+modify role permissions
+prepare
+process
+protected resources
+remove lookup entry
+revoke
+revoke all from
+revoke all on
+setup
+abort
+authenticate
+clean up internal state
+commit
+initialize
+login
+logout
+cassandra principal
+equals
+get name
+hash code
+to string
+cassandra role manager
+role
+alter role
+alterable options
+apply
+can login
+collect roles
+consistency for role
+create role
+drop role
+equals
+escape
+get all roles
+get custom options
+get gensalt log rounds
+get role
+get roles
+grant role
+has existing roles
+hash code
+hashpw
+is existing role
+is super
+modify role membership
+modify role membership

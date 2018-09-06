@@ -1,0 +1,22 @@
+cycle: 1 cycle_length: 2 nh: 100 nl: 100
+
+public <s> sasl negotiator </s> ( <s> inet address </s> <s> client address </s> ) { return <s> authenticator instance </s> ; } _eos_
+new sasl negotiator _eos_
+_bos_ _pad_ _pad_ _pad_ escape
+
+public void ( <s> authenticated user </s> <s> performer </s> comma <s> set </s> < <s> permission </s> > <s> permissions </s> comma <s> i resource </s> <s> resource </s> comma <s> role resource </s> <s> to </s> ) { throw new <s> unsupported operation exception </s> ( <s> " grant operation is not supported by allow all authorizer " </s> ) ; } _eos_
+grant _eos_
+complete _bos_ _eos_ _eos_ _eos_
+
+public ( <s> string </s> <s> name </s> ) { this . <s> name </s> = <s> name </s> ; this . <s> role </s> = <s> role resource </s> . <s> role </s> ( <s> name </s> ) ; } _eos_
+authenticated user _eos_
+authentication _eos_ keyspace alterable alterable
+
+public <s> set </s> < <s> permission </s> > ( <s> i resource </s> <s> resource </s> ) { return <s> permissions cache </s> . <s> get permissions </s> ( this comma <s> resource </s> ) ; } _eos_
+get permissions _eos_
+_bos_ _unk _unk _pad_ _pad_
+
+public boolean ( ) { return ! <s> is anonymous </s> ( ) && <s> roles </s> . <s> has superuser status </s> ( <s> role </s> ) ; } _eos_
+is super _eos_
+setup _bos_ _eos_ _eos_ _eos_
+Total Accuracy 0.2333333333333333Modified Accuracy 0.0
