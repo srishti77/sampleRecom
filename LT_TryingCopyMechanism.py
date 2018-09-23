@@ -100,7 +100,7 @@ class Seq2SeqRNN_All(nn.Module):
 
             print('prob_c_to_g'+str(prob_c_to_g.size()))
             if (y is not None) and (random.random() < self.pr_force):
-                t_y = inp.t() # 87* 5
+                t_y = y.t() # 87* 5
                 for b_idx in range(bs):  # for each sequence in batch
                         #if b_idx < bs and t_y[b_idx,i] < len(self.itos_dec):
                             #print(i)
