@@ -162,7 +162,7 @@ file_object.write('\n')
 def calculateAccuracy():
     array = []
     eos = '_eos_'
-    for i in range(0, 5):
+    for i in range(0, 250):
         file_object.write('\n')
         # print(' '.join([mn_itos[o] for o in x[:,i] if o != 1]))
         file_object.write(' '.join([mb_itos[o] for o in x[:, i] if o != 1]))
