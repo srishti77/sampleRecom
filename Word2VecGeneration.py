@@ -46,16 +46,15 @@ if __name__ == '__main__':
     logging.info("Done reading data file")
     print("Inside main")
     #build vocabulary and train model
-    '''
+    
     model = gensim.models.Word2Vec(
-         documents,
-         size=5,
-         window=2,
-         min_count=2)
+         size=300,
+         window=15,
+         min_count=1)
     
-     model.train(documents, total_examples=len(documents), epochs=10)
+    #model.train(documents, total_examples=len(documents), epochs=10)
     
-    '''
+    
     # save only the word vectors
     #model.wv.save(open(f'{wordvec_path}mb_tok.pkl','wb'))
     print('First value '+str(documents[0]))

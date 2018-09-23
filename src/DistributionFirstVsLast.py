@@ -73,4 +73,3 @@ def writeInFile():
     
     file.close()
 writeInFile()
-    
